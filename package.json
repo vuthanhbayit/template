@@ -28,7 +28,8 @@
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
-    "test:types": "tsc --noEmit --skipLibCheck"
+    "test:types": "tsc --noEmit --skipLibCheck",
+    "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
     "@types/node": "^20.8.2",
@@ -41,6 +42,9 @@
     "typescript": "^5.2.2",
     "unbuild": "^2.0.0",
     "vitest": "^0.34.6"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "packageManager": "pnpm@8.9.0"
 }
